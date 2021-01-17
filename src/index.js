@@ -1,17 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import Bulb from './App';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function App() {
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  let [counter, increment] = useState(0);
+
+  return (
+    <div className="container">
+      <section class="button">
+        <button onClick={() => increment(counter++)}>CLICK ME</button>
+      </section>
+      <section class="counter">
+        <span>{ counter }</span>
+      </section>
+    </div>
+  )
+}
+
+const rootElement = document.getElementById('root');
+ReactDOM.render(<App />, rootElement)
